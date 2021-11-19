@@ -26,3 +26,11 @@
 - [ ] Add done route
 - [ ] Add in_progress route
 - [ ] Contact the media
+
+
+### Add your own branch:
+`git checkout -b <your_name>-<branch_name>`
+
+### List all branches
+`git banch --list`
+`git banch --list -a`
