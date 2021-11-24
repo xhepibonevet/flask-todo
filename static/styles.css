@@ -12,6 +12,7 @@ font-family: verdana;
 font-size: 20px;
 }
 
+<<<<<<< HEAD
 button{
     color: blueviolet;
 }
@@ -22,4 +23,8 @@ form{
     align-content: center;
     border: 2px solid chartreuse;
     width: 280px;
+=======
+form {
+    text-align: center;
+>>>>>>> rexhep-test-branch
 }
