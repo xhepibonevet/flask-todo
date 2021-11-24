@@ -1,13 +1,25 @@
 body {
-    background-color: lightblue;
+    background-color: rgb(151, 43, 184);
 }
 
 h1 {
-color: white;
+color: rgb(129, 160, 160);
 text-align: center;
 }
 
 p {
 font-family: verdana;
 font-size: 20px;
+}
+
+button{
+    color: blueviolet;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    border: 2px solid chartreuse;
+    width: 280px;
 }
