@@ -1,6 +1,9 @@
+{% extends "base.html" %}
 
-<!-- HTML FORM QE SHTON SENE PER MI BO -->
 
-<form>
-    
-</form>
+{% block content %}
+        {% for todo in todos %}
+            <p> Title: {{ todo["title"] }} </p>
+            <p> Description: {{ todo["description"] }} </p>
+        {% endfor %}
+{% endblock content %}
