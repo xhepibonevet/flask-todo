@@ -1,11 +1,11 @@
-from flask import Flask
+from flask import Flask, render_template
+from datetime import datetime
 
 app = Flask(__name__)
 
 @app.route("/")
 def index():
-    return """
-    <h1>HELLO FLASK!</h1>
-    """
+    d = str(datetime.now()).split(" ")[1].split(".")[0]
+    return render_template("index.html", ora=d)
 
 app.run(host='0.0.0.0', port='8000', debug=True)
