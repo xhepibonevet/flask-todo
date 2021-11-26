@@ -11,7 +11,6 @@ def read_file(f="done"):
 def write_file(new_lines, f="done"):
     lines = read_file(f)
     all_lines = lines + new_lines
-    breakpoint()
     with open(f"{BASE_DIR}//data//{f}.txt", "w") as input_file:
         for line in all_lines:
             input_file.write(line + "\n")
