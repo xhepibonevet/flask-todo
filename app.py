@@ -2,6 +2,8 @@ from flask import Flask, render_template, request
 from datetime import datetime
 import os
 
+from utils import write_file, read_file, transfer_line, lines_to_dict
+
 app = Flask(__name__)
 
 BASE_DIR = os.getcwd()
@@ -18,23 +20,20 @@ def todo():
         new_todo = dict(request.form)
         title = new_todo["title"]
         description = new_todo["description"]
-
-        f = open(BASE_DIR + "\\data\\todo.txt", "w")
-        f.write(f"{title}:{description}\n")
-        f.close()
-
-
-    with open(BASE_DIR + "\\data\\todo.txt", "r") as f:
-        lines = f.readlines()
-    
-    todos = []
-    for line in lines:
-        todos.append({
-            "title": line.split(":")[0],
-            "description": line.split(":")[1].replace("\n", "")
-        })
-
+    todos = lines_to_dict(read_file(f="todo"))
     return render_template("todo.html", todos=todos)
+
+
+@app.route("/done", methods=["GET", "POST"])
+def done():
+    if request.method == "POST":
+        transfer_done = dict(request.form)
+        for t in transfer_done:
+            transfer_line(f"{t}:{transfer_done[t]}".strip())
+
+    dones = lines_to_dict(read_file(f="done"))
+    return render_template("done.html", dones=dones)
+
 
 
 app.run(host='0.0.0.0', port='8000', debug=True)

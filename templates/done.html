@@ -2,7 +2,10 @@
 
 
 {% block content %}
-    <h1>Ora eshte {{ ora }}</h1>
-    <p>Kerkujna spo ja nin</p>
-    <p> Nje ndryshim </p>
+
+    {% for done in dones %}
+    <h5>{{done["title"]}}</h5>
+    <p>{{done["description"]}}</p>
+    {% endfor %}
+
 {% endblock content %}

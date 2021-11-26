@@ -2,8 +2,14 @@
 
 
 {% block content %}
-        {% for todo in todos %}
-            <p> Title: {{ todo["title"] }} </p>
-            <p> Description: {{ todo["description"] }} </p>
-        {% endfor %}
+
+        <form action="/done" method="post">
+            {% for todo in todos %}
+            <input type="checkbox" id="vehicle1" name="{{ todo['title'] }}" value="{{ todo['description'] }} ">
+            <label for="vehicle1"> {{ todo['title'] }}: {{ todo['description'] }} </label><br>
+            {% endfor %}
+
+            <button type="submit"> TRASFER TO DONE </button>
+          </form>
+          
 {% endblock content %}
